@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 import {
   Colors,
@@ -55,7 +56,11 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+function AppOld(): JSX.Element {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -115,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default AppOld;
